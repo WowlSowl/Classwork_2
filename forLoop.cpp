@@ -9,7 +9,7 @@ int main()
 for (counter ; counter < fin ;counter ++)
     {
         variable = variable + 1;
-        std::cout << variable;
+        std::cout << variable << "\n";
     }   
 
 }
