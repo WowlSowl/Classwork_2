@@ -32,4 +32,20 @@ int main()
     avg = static_cast <float> (sum) / MAX_GRADES;
     std::cout << "The grade sum is : " << sum << "\n";
     std::cout << "The grade average is : " << avg << "\n";
+
+
+    for (int value{0}; value <= 100; value++)
+    {
+
+        int count {0};
+        for (unsigned int grade : grades)
+        { 
+            if (grade == value)
+                count++;
+        }
+        std::cout << value;
+        for (int i{0}; i < count; i++)
+            std::cout << "+";
+        std::cout << std::endl;
+    }
 }
