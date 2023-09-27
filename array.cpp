@@ -30,6 +30,6 @@ int main()
     }
     std::cout << std::endl;
     avg = static_cast <float> (sum) / MAX_GRADES;
-    std::cout << "The grade sum is :" << sum << "\n";
-    std::cout << "The grade average is :" << avg << "\n";
+    std::cout << "The grade sum is : " << sum << "\n";
+    std::cout << "The grade average is : " << avg << "\n";
 }
