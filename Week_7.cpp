@@ -18,11 +18,24 @@ int main ()
         {0,1,0,1,1,0,1,0},
         {0,1,1,1,1,1,1,0},
         {0,1,0,1,1,0,1,0},
-        {0,1,1,0,0,1,1,1},
+        {0,1,1,0,0,1,1,0},
         {1,0,1,1,1,1,0,1},
         {1,1,0,0,0,0,1,1}
         }
     };
+
+    for( array<int, COLS> ROWS : image)
+    {
+        // row reperesents one row allowing us to traverse the list
+        for(int pixle : ROWS)
+        {
+            if (pixle == 0)
+                cout << "@";
+            else
+                cout << " ";
+        }
+        cout<< endl;
+    }
 
 
 
