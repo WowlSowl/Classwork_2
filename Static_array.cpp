@@ -17,6 +17,18 @@ int getIndexOfValue(unsigned int myData[], int arraySize, int searchValue)
     return -1;
 }
 
+unsigned int* getInt(unsigned int myData[], int arraySize, int searchValue)
+{
+    for(int i{0}; i < arraySize; i++)
+        {
+            if (myData[i] == searchValue)
+            {
+                return myData + i; // a pointer to the i'th 
+            }
+        }
+    return nullptr;
+}
+
 int main()
 {
     const unsigned int MAX_GRADES{5};
@@ -50,5 +62,5 @@ int main()
     unsigned int searchValue{0};
     std::cout << "Enter search value: ";
     std::cin >> searchValue;
-    std::cout << getIndexOfValue(grades, MAX_GRADES,searchValue) << std::endl;
+    std::cout << getInt(grades, MAX_GRADES,searchValue) << std::endl;
 }
