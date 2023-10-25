@@ -24,8 +24,16 @@ Car::Car() : Car("Black","SUV",0)
 Car::Car(string color, string type, int doors)
 :color{color}, type{type}, doors{doors}
 {
-
+    this->enginePtr = new Engine("V6");
 }
+
+
+Car::~Car() //Deconstructor
+{
+    delete this->enginePtr;
+    this->enginePtr=nullptr;
+}
+
 void Car::setColor(string color)
 {
     this->color = color;
@@ -43,6 +51,7 @@ void Car::setType(string aCarType, int doorNo)
 void Car::toString()
 {
     std::ostringstream output;
-    output << "A " << color << 
+    output << "A" << this->color << " " << this->type
+    << "Car, with" << this->doorNo << "with a " << this->Engine;
 }
 

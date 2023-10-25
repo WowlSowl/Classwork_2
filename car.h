@@ -9,12 +9,15 @@
     using std::string;
 #include <array>
     using std::array;
+#include "Engine.h"
 
-class Car{
+class Car
+{
 private:
     string color;
     string type; //Sedan, SUV
     int doors;
+    Engine *enginePtr; //creates a pointer to another class
 public:
     //Interface of the car
     explicit Car(std::string color, std::string type, int doors);
