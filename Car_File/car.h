@@ -42,20 +42,19 @@ class Car
 {
 private:
     string color;
-    string type; //Sedan, SUV
     int doors;
     Engine *enginePtr;
 
 public:
     // the interface of the car
     Car();
-    explicit Car(string color, string type);
-    explicit Car(string color, string type, int doors);
+    explicit Car(string color);
+    explicit Car(string color,int doors);
 
     ~Car();
 
     void setColor(string color);
-    void setType(string type, int doors);
+    void setDoors(int doors);
 
     string toString();
 

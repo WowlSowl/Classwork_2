@@ -68,18 +68,18 @@ void Car::toString()
 #include "Car.h"
 
 
-Car::Car() : Car("Black","SUV",0)
+Car::Car() : Car("Black",0)
 {
     //left empty
 }
 
-Car::Car(string color, string type)
-: Car(color, type, 5)
+Car::Car(string color, int doors)
+: Car(color,5)
 {
 }
 
-Car::Car(string color, string type, int doors)
-:color{color}, type{type},doors{doors}
+Car::Car(string color,int doors)
+:color{color},doors{doors}
 {
     this->enginePtr = new Engine("V6");
 }
@@ -95,21 +95,15 @@ void Car::setColor(string color)
 {
     this->color = color;
 }
-void Car::setType(string type, int doors)
+void Car::setDoors(int doors)
 {
-    if (type != "Sedan" && type != "SUV")
-    {
-        throw std::invalid_argument("Invalid Car Type");
-    }
-
-    this->type = type;
     this->doors = doors;
 }
 
 string Car::toString()
 {
     ostringstream output;
-    output << "A " << this->color << " " << this->type
+    output << "A " << this->color << " "
            << " Car, with " << this->doors << " doors."
            << " With a Engine:" << this->enginePtr->getModel();
     return output.str();

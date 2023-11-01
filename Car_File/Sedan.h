@@ -5,25 +5,22 @@
     using std::string;
 
 #include "engine.h"
+#include "car.h"
 
-class Sedan
+class Sedan : public Car
+
+//class Sedan
 {
 private:
-    string color;
-    string type; //Sedan, SUV
-    int doors;
-    Engine *enginePtr;
-
+    bool sunroof;
+    
 public:
     // the interface of the Sedan
     Sedan();
-    explicit Sedan(string color, string type);
-    explicit Sedan(string color, string type, int doors);
+    explicit Sedan(std::string color);
+    explicit Sedan(std::string color,int doors);
 
     ~Sedan();
-
-    void setColor(string color);
-    void setType(string type, int doors);
 
     string toString();
 
