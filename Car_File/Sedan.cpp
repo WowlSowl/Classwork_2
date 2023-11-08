@@ -1,30 +1,43 @@
+//Sedan.cpp
+#include <string>
+    using std::string;
+
+#include <iostream>
+#include <stdexcept>
+#include <sstream>
+    using std::ostringstream;
 
 #include "Sedan.h"
-#include "iostream"
-#include "string"
 
-
-Sedan::Sedan() : Sedan("Black",4,true)
+///////////////////////////////////////////////////////////////////////////////////
+//// Instance Members
+////////////////////////////////
+Sedan::Sedan() : Sedan("Black",0, false)
 {
     //left empty
 }
 
-Sedan::Sedan(string color,int doors)
+
+
+Sedan::Sedan(string color, int doors, bool sunroof)
 : Car(color,doors), sunroof(sunroof)
 {
 }
 
 Sedan::~Sedan() //Destructor
 {
-    std::cout << "calling Car Destructor\n";
+    std::cout << "calling Sedan Destructor\n";
 }
+
 
 string Sedan::toString()
 {
-    std::ostringstream output;
+    ostringstream output;
 
-    std::ostringstream ouput << "SEDAN:" << Car::toString();
+    output << "SEDAN:" <<   Car::toString();
 
     return output.str();
 
 }
+
+ 

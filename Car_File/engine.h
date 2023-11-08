@@ -14,7 +14,7 @@ public:
     
     string getModel();
     //destructor
-    ~Car();
+    virtual ~Car();
 }
 
 #endif
@@ -32,7 +32,7 @@ private:
 
 public:
     explicit Engine(string model);
-    ~Engine();
+    virtual ~Engine();
 
     string getModel();
 

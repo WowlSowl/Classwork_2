@@ -1,26 +1,27 @@
-#ifndef Sedan_H
-#define Sedan_H
+//Sedan.h
+#ifndef SEDAN_H
+#define SEDAN_H
+
+#include <iostream>
+    using std::ostream;
 
 #include <string>
     using std::string;
 
-#include "engine.h"
-#include "car.h"
+
+#include "Car.h"
 
 class Sedan : public Car
-
-//class Sedan
 {
 private:
     bool sunroof;
-    
-public:
-    // the interface of the Sedan
-    Sedan();
-    explicit Sedan(std::string color);
-    explicit Sedan(std::string color,int doors);
 
-    ~Sedan();
+public:
+    // the interface of the car
+    Sedan();
+    explicit Sedan(string color, int doors, bool sunroof);
+
+    virtual ~Sedan();
 
     string toString();
 

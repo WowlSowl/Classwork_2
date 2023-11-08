@@ -1,61 +1,3 @@
-/*#include <iostream>
-    using std::cin;
-    using std::cout;
-    using std::endl;
-#include <string>
-    using std::string;
-#include <array>
-    using std::array;
-#include "car.h"
-#include <stdexcept>
-
-Car::Car() : Car("Black","SUV",0)
-{
-    //left empty
-}
-{
-    //default values
-    this->color="Black";
-    this->sedan="SUV";
-    this->doors=0;
-}
-
-
-Car::Car(string color, string type, int doors)
-:color{color}, type{type}, doors{doors}
-{
-    this->enginePtr = new Engine("V6");
-}
-
-
-Car::~Car() //Deconstructor
-{
-    delete this->enginePtr;
-    this->enginePtr=nullptr;
-}
-
-void Car::setColor(string color)
-{
-    this->color = color;
-}
-void Car::setType(string aCarType, int doorNo)
-{
-    if (aCarType != "Sedan" and aCarType != "SUV")
-    {
-        throw std::invalid_argument("Invalid Car Tpe");
-    }
-    type = aCarType;
-    doors = doorNo;
-}
-
-void Car::toString()
-{
-    std::ostringstream output;
-    output << "A" << this->color << " " << this->type
-    << "Car, with" << this->doorNo << "with a " << this->Engine;
-}
-*/
-
 //Car.cpp
 #include <string>
     using std::string;
@@ -67,21 +9,41 @@ void Car::toString()
 
 #include "Car.h"
 
+///////////////////////////////////////////////////////////////////////////////////
+//// Class Members
+////////////////////////////////
+int Car::counter{1};  //class attribute
 
+int Car::getNextId() //class method
+{
+    int current = Car::counter;
+    Car::counter++;
+
+    return current;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//// Instance Members
+////////////////////////////////
 Car::Car() : Car("Black",0)
 {
     //left empty
 }
 
-Car::Car(string color, int doors)
-: Car(color,5)
+Car::Car(string color)
+: Car(color,  5)
 {
 }
 
-Car::Car(string color,int doors)
+Car::Car(string color,  int doors)
 :color{color},doors{doors}
 {
     this->enginePtr = new Engine("V6");
+
+    this->id = Car::getNextId();
+    // this->id = getNextId();
+    // this->id = this->getNextId();
 }
 
 Car::~Car() //Destructor
@@ -91,19 +53,30 @@ Car::~Car() //Destructor
     this->enginePtr=nullptr;
 }
 
+int Car::getId() const
+{
+    return this->id;
+}
+
+
+
 void Car::setColor(string color)
 {
     this->color = color;
 }
-void Car::setDoors(int doors)
+
+void Car::setDoors( int doors)
 {
     this->doors = doors;
 }
 
+
+
+
 string Car::toString()
 {
     ostringstream output;
-    output << "A " << this->color << " "
+    output << "CAR:A " << this->color
            << " Car, with " << this->doors << " doors."
            << " With a Engine:" << this->enginePtr->getModel();
     return output.str();
